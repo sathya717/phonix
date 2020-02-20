@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
@@ -37,19 +38,29 @@ const Link = styled(NavLink)`
 `;
 
 export default function Navbar() {
+  const { account, auth } = useSelector(state => state);
+
   return (
     <Nav>
       <div className="nav-title">
         <Title>
-          <i class="fas fa-stream"></i> Phonix
+          <i className="fas fa-stream"></i> Phonix
         </Title>
       </div>
       <NavLinks className="nav-links">
-        <NavItem>
-          <Link to="/login" activeStyle={{ color: "pink" }}>
-            login
-          </Link>
-        </NavItem>
+        {!auth.token ? (
+          <NavItem>
+            <Link to="/login" activeStyle={{ color: "pink" }}>
+              login
+            </Link>
+          </NavItem>
+        ) : (
+          <NavItem>
+            <Link to="/login" activeStyle={{ color: "pink" }}>
+              {account.user && account.user.username}
+            </Link>
+          </NavItem>
+        )}
       </NavLinks>
     </Nav>
   );

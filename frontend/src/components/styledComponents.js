@@ -20,13 +20,17 @@ export const InputGroup = styled.div`
 
 export const Input = styled.input`
   color: #fff;
-  padding: 10px 0px;
+  padding: 20px 0px;
   width: 40%;
   /* border: none; */
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #000;
   padding: 5px 10px;
+
+  @media (max-width: 768px) {
+    width: 70%;
+  }
 `;
 
 export const Label = styled.label`

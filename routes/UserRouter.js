@@ -61,7 +61,9 @@ router.post(
       newUser.password = hashedPassword;
       await newUser.save();
       await newCart.save();
-      res.status(200).json({ status: "Success", status_code: 200 });
+      res
+        .status(200)
+        .json({ msg: "Successfully Created User.", status_code: 200 });
     } catch (err) {
       return res.status(500).json({ errors: "Internal Server Error", err });
     }
