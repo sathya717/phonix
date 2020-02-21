@@ -139,4 +139,25 @@ router.get("/", authMiddleware, async (req, res) => {
   }
 });
 
+/*
+    Description : Get all items user is selling
+    Endpoint    : GET /api/item/all/user/
+    Access      : Private
+*/
+
+router.get("/all/user", authMiddleware, async (req, res) => {
+  console.log("hi");
+  try {
+    const { id } = req.user;
+    const item = await Item.find({ owner: id });
+    if (!item) {
+      return res.json({ errors: [{ msg: "Item not found " }] });
+    }
+    return res.json({ items: item });
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ errors: "Intersnal Server Error" });
+  }
+});
+
 module.exports = router;

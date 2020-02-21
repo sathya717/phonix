@@ -1,6 +1,6 @@
 # Phonix
 
-Marketplace for buying/selling electronics built with MEAN Stack.
+Marketplace for buying/selling electronics built with MERN Stack.
 
 ## Usage
 
