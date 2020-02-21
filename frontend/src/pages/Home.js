@@ -7,11 +7,22 @@ import styled from "styled-components";
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 10px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
 `;
+
+/* 
+
+  TODO : 
+
+    [] IMPLEMENT USER AND ITEM FETCH IN app.js
+
+
+
+*/
 
 export default function Home({ history }) {
   const { auth, account } = useSelector(state => state);

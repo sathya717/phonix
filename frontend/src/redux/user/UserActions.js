@@ -1,6 +1,6 @@
-import { SET_USER, SET_AVAILABLE_ITEMS } from "./UserTypes";
+import { SET_USER, SET_AVAILABLE_ITEMS, CREATE_NEW_ITEM } from "./UserTypes";
 import Axios from "axios";
-import { setError } from "../Alert/AlertTypes";
+import { setError } from "../Alert/AlertActions";
 
 export const setUser = user => {
   return {
@@ -13,6 +13,12 @@ export const setItems = items => {
   return {
     type: SET_AVAILABLE_ITEMS,
     payload: items
+  };
+};
+
+export const setNewItem = () => {
+  return {
+    type: CREATE_NEW_ITEM
   };
 };
 
@@ -35,6 +41,20 @@ export const fetchAvailableItems = token => async dispatch => {
     });
     dispatch(setItems(res.data.items));
   } catch (err) {
+    dispatch(setError(err.response.data.errors));
+  }
+};
+
+export const createNewItem = (token, data) => async dispatch => {
+  try {
+    const res = await Axios.post("/api/items", data, {
+      headers: { "x-auth-token": token }
+    });
+    console.log(res.data);
+    dispatch(setNewItem());
+    dispatch(fetchAvailableItems(token));
+  } catch (err) {
+    console.log(err);
     dispatch(setError(err.response.data.errors));
   }
 };

@@ -5,7 +5,7 @@ import {
   REMOVE_NEW_USER_CREATED
 } from "./AuthTypes";
 import axios from "axios";
-import { setError, setNotification } from "../Alert/AlertTypes";
+import { setError, setNotification } from "../Alert/AlertActions";
 
 export const setUserToken = token => {
   return {

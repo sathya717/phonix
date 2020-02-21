@@ -3,7 +3,7 @@ import {
   REMOVE_ERROR,
   SET_NOTIFICATION,
   REMOVE_NOTIFICATION
-} from "./AlertActions";
+} from "./AlertTypes";
 
 const initState = {
   errors: [],

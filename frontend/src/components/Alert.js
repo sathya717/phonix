@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { removeError, removeNotification } from "../redux/Alert/AlertTypes";
+import { removeError, removeNotification } from "../redux/Alert/AlertActions";
 import styled from "styled-components";
 
 const Flex = styled.div`

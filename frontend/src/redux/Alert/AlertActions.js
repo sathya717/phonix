@@ -1,5 +1,34 @@
-export const SET_ERROR = "SET_ERROR";
-export const SET_SUCCESS = "SET_SUCCESS";
-export const REMOVE_ERROR = "REMOVE_ERROR";
-export const SET_NOTIFICATION = "SET_NOTIFICATION";
-export const REMOVE_NOTIFICATION = "REMOVE_NOTIFICATION";
+import {
+  SET_ERROR,
+  REMOVE_ERROR,
+  SET_NOTIFICATION,
+  REMOVE_NOTIFICATION
+} from "./AlertTypes";
+
+export const setError = err => {
+  return {
+    type: SET_ERROR,
+    payload: err
+  };
+};
+
+export const removeError = msg => {
+  return {
+    type: REMOVE_ERROR,
+    payload: msg
+  };
+};
+
+export const setNotification = msg => {
+  return {
+    type: SET_NOTIFICATION,
+    payload: msg
+  };
+};
+
+export const removeNotification = msg => {
+  return {
+    type: REMOVE_NOTIFICATION,
+    payload: msg
+  };
+};

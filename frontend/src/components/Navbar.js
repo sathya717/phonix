@@ -44,7 +44,9 @@ export default function Navbar() {
     <Nav>
       <div className="nav-title">
         <Title>
-          <i className="fas fa-stream"></i> Phonix
+          <Link to="/">
+            <i className="fas fa-stream"></i> Phonix
+          </Link>
         </Title>
       </div>
       <NavLinks className="nav-links">
@@ -55,11 +57,21 @@ export default function Navbar() {
             </Link>
           </NavItem>
         ) : (
-          <NavItem>
-            <Link to="/login" activeStyle={{ color: "pink" }}>
-              {account.user && account.user.username}
-            </Link>
-          </NavItem>
+          <>
+            <NavItem>
+              <Link to={`/new/item`} activeStyle={{ color: "pink" }}>
+                Sell a Item
+              </Link>
+            </NavItem>
+            <NavItem>
+              <Link
+                to={`/user/${account.user && account.user._id}`}
+                activeStyle={{ color: "pink" }}
+              >
+                {account.user && account.user.username}
+              </Link>
+            </NavItem>
+          </>
         )}
       </NavLinks>
     </Nav>
